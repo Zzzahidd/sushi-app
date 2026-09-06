@@ -13,7 +13,12 @@ const options = {
 
     servers: [
       {
+        url: "https://sushi-app-pxoh.onrender.com",
+        description: "Production Server (Render)",
+      },
+      {
         url: "http://localhost:5000",
+        description: "Local Development Server",
       },
     ],
   },
