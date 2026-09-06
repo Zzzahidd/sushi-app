@@ -14,6 +14,6 @@ export const checkoutItems = [
     description:
       "Fresh salmon sashimi with wasabi and soy sauce",
     price: "$14.00",
-    image: require("../assets/images/orders/salmon-sashimi.png"),
+    image: require("../assets/images/menu/salmon-sashimi.png"),
   },
 ];

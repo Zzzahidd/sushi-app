@@ -27,7 +27,7 @@ export default function DetailsScreen() {
         {/* Header */}
 
         <DetailsHeader
-          image={require("../assets/images/sushi/sakura.png")}
+          image={require("../assets/images/sushi/sushi1.png")}
         />
 
         {/* Product Info */}

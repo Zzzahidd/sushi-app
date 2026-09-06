@@ -35,7 +35,7 @@ export default function OfferBanner() {
       {/* Right Image */}
 
       <Image
-        source={require("../../assets/images/menu/banner-sushi.png")}
+        source={require("../../assets/images/menu/salmon-nigiri.png")}
         resizeMode="contain"
         style={styles.image}
       />
