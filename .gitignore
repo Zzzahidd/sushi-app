@@ -19,8 +19,6 @@ android/
 **/.env.*
 !.env.example
 **/!.env.example
-google-services.json
-**/google-services.json
 
 # Logs and local tooling
 logs/

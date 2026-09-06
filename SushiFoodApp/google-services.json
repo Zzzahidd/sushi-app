@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "279651943127",
+    "project_id": "sushi-3185f",
+    "storage_bucket": "sushi-3185f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279651943127:android:7c54a9430a781aaf3be692",
+        "android_client_info": {
+          "package_name": "sushi.test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5RfhwjiwiLZxyf4awyylFyGJvRM37AyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
