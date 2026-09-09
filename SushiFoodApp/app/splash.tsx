@@ -17,7 +17,7 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-     router.replace("/(auth)/login");
+      router.replace("/onboarding" as any);
     }, 2500);
 
     return () => clearTimeout(timer);
@@ -34,7 +34,7 @@ export default function SplashScreen() {
         {/* Logo */}
 
         <View style={styles.center}>
-          <Text style={styles.logo}>Oroshi</Text>
+          <Text style={styles.logo}>Sushir Bhai</Text>
         </View>
 
         {/* Sushi Image */}
