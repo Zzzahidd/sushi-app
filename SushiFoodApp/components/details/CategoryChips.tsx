@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import * as Haptics from "expo-haptics";
+import React from "react";
 import {
-    FlatList,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  FlatList,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 const categories = [
@@ -15,8 +17,22 @@ const categories = [
   "Bento",
 ];
 
-export default function CategoryChips() {
-  const [selected, setSelected] = useState("Nigiri");
+interface Props {
+  selected?: string;
+  onSelect?: (category: string) => void;
+}
+
+export default function CategoryChips({
+  selected = "Nigiri",
+  onSelect,
+}: Props) {
+  const triggerHaptic = () => {
+    try {
+      if (Platform.OS !== "web") {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      }
+    } catch (_) {}
+  };
 
   return (
     <View style={styles.container}>
@@ -31,11 +47,18 @@ export default function CategoryChips() {
 
           return (
             <TouchableOpacity
-              onPress={() => setSelected(item)}
+              activeOpacity={0.8}
+              onPress={() => {
+                triggerHaptic();
+                onSelect?.(item);
+              }}
               style={[
                 styles.chip,
                 active && styles.activeChip,
               ]}
+              accessible={true}
+              accessibilityRole="button"
+              accessibilityLabel={`${item} category, ${active ? "selected" : "not selected"}`}
             >
               <Text
                 style={[
@@ -55,35 +78,31 @@ export default function CategoryChips() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 24,
+    marginTop: 20,
   },
-
   list: {
     paddingHorizontal: 20,
+    gap: 10,
   },
-
   chip: {
-    paddingHorizontal: 22,
-    paddingVertical: 11,
-
-    marginRight: 12,
-
+    paddingHorizontal: 20,
+    paddingVertical: 10,
     borderRadius: 20,
-
-    backgroundColor: "#F4F4F4",
+    backgroundColor: "#F4F4F5",
+    borderWidth: 1,
+    borderColor: "transparent",
   },
-
   activeChip: {
-    backgroundColor: "#FF5A36",
+    backgroundColor: "#FF6B4A",
+    borderColor: "#FF6B4A",
   },
-
   text: {
-    color: "#888",
+    color: "#71717A",
     fontSize: 14,
     fontWeight: "600",
   },
-
   activeText: {
     color: "#FFFFFF",
+    fontWeight: "700",
   },
 });

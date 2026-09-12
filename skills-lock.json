@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "skills": {
+    "backend-dev-guidelines": {
+      "source": "sickn33/agentic-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/backend-dev-guidelines/SKILL.md",
+      "computedHash": "074094e8e4c78e2e767095145b099ffd3a595d7e6898e9f3f62943d03b2ec21c"
+    },
+    "design-mobile-apps": {
+      "source": "designed-by-ai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/design-mobile-apps/SKILL.md",
+      "computedHash": "f4cc1e18b4ebb78a5b0a841dabf9d7de517e21446a25e14284a0295c6027274b"
+    },
+    "expressjs-development": {
+      "source": "manutej/luxor-claude-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/luxor-backend-toolkit/skills/expressjs-development/SKILL.md",
+      "computedHash": "ed03c0f8e6967f81ec1ab35b5178d4897bc50f44d2343457cb0260d9e78ca42d"
+    },
+    "mobile-app-ui-design": {
+      "source": "ceorkm/mobile-app-ui-design",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "0f039cf367e8f72ca25d27e503e8a68f26210c6bbe31ed51c86d7263ecfe5f74"
+    },
+    "mobile-touch": {
+      "source": "dylantarre/animation-principles",
+      "sourceType": "github",
+      "skillPath": "skills/01-by-domain/mobile-touch/SKILL.md",
+      "computedHash": "cd852f253ae7120d318fef2b495d93f00e682ecc6584f980cb96a9371211d2d3"
+    },
+    "nodejs-backend-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/javascript-typescript/skills/nodejs-backend-patterns/SKILL.md",
+      "computedHash": "48294eab8cded4902690197f684e2053c6fa02af303a1397ab53ea41e7d7a6bd"
+    },
+    "react-native-animations": {
+      "source": "pluginagentmarketplace/custom-plugin-react-native",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-animations/SKILL.md",
+      "computedHash": "ced8f430c7df78961404e2a0b7db8b2a6cc8fa571b1f0b7c40ad5399a4663f2f"
+    },
+    "react-native-architecture": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/frontend-mobile-development/skills/react-native-architecture/SKILL.md",
+      "computedHash": "82b148f23840f412cb29f6085f0a4cf34052301646bc24ed8befe08ef2448f99"
+    },
+    "react-native-best-practices": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-best-practices/SKILL.md",
+      "computedHash": "5b9722518860a462a9308759b7046725e4a1ab59642ad6a6e520afc45bc8373b"
+    },
+    "react-native-design": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/ui-design/skills/react-native-design/SKILL.md",
+      "computedHash": "45544b3512ae23ff2482d33b16339499f45cb5a79440705f66254a69621bffcc"
+    },
+    "senior-backend": {
+      "source": "alirezarezvani/claude-skills",
+      "sourceType": "github",
+      "skillPath": "engineering-team/skills/senior-backend/SKILL.md",
+      "computedHash": "86dbafb23f7c101f59d8d3233522683baf0614141b4a02ba6dbfc4174b4867f6"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "3f1e66e08e3d1d3feaf2a3187705022812e0bece8ff5bee80fe7cf782f26fe8b"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-skills/SKILL.md",
+      "computedHash": "a804b4e848059822638c390359976f7021380bcefb1469d473aa4e9202c15ecb"
+    }
+  }
+}

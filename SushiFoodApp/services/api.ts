@@ -97,3 +97,43 @@ export const paymentApi = {
       body: JSON.stringify({ amount }),
     }),
 };
+
+// Tracking API
+export const trackingApi = {
+  getLiveTracking: (orderId: string) => apiRequest(`/tracking/${orderId}`),
+  updateTracking: (orderId: string, data: any) =>
+    apiRequest(`/tracking/${orderId}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+    }),
+  startSimulation: (orderId: string) =>
+    apiRequest(`/tracking/${orderId}/simulate`, {
+      method: "POST",
+      body: JSON.stringify({ action: "start" }),
+    }),
+};
+
+// Push Notification API
+export const pushApi = {
+  registerToken: (token: string, userId?: string) =>
+    apiRequest("/push/register-token", {
+      method: "POST",
+      body: JSON.stringify({ token, userId }),
+    }),
+  sendPush: (token: string, title: string, body: string, data?: any) =>
+    apiRequest("/push/send", {
+      method: "POST",
+      body: JSON.stringify({ token, title, body, data }),
+    }),
+  sendOrderUpdate: (token: string, orderId: string, status: string) =>
+    apiRequest("/push/send-order-update", {
+      method: "POST",
+      body: JSON.stringify({ token, orderId, status }),
+    }),
+  sendPromo: (title: string, body: string, promoCode?: string) =>
+    apiRequest("/push/send-promo", {
+      method: "POST",
+      body: JSON.stringify({ title, body, promoCode }),
+    }),
+};
+

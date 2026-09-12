@@ -13,6 +13,7 @@ interface Props {
   value: string;
   onChangeText: (text: string) => void;
   keyboardType?: KeyboardTypeOptions;
+  autoCapitalize?: "none" | "sentences" | "words" | "characters";
 }
 
 export default function AuthInput({
@@ -21,6 +22,7 @@ export default function AuthInput({
   value,
   onChangeText,
   keyboardType = "default",
+  autoCapitalize,
 }: Props) {
   return (
     <View style={styles.container}>
@@ -33,6 +35,7 @@ export default function AuthInput({
         value={value}
         onChangeText={onChangeText}
         keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
         placeholderTextColor="#9CA3AF"
         style={styles.input}
       />

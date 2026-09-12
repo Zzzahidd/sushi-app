@@ -36,6 +36,16 @@ const userSchema = new mongoose.Schema(
       default: "user",
     },
 
+    pushToken: {
+      type: String,
+      default: "",
+    },
+
+    fcmToken: {
+      type: String,
+      default: "",
+    },
+
     isVerified: {
       type: Boolean,
       default: false,

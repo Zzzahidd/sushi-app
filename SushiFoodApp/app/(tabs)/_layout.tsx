@@ -1,108 +1,22 @@
-import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
+import React from "react";
+import FloatingTabBar from "../../components/navigation/FloatingTabBar";
 
 export default function TabsLayout() {
   return (
     <Tabs
+      tabBar={(props) => <FloatingTabBar {...(props as any)} />}
       screenOptions={{
         headerShown: false,
-
-        tabBarShowLabel: false,
-
-        tabBarStyle: {
-          position: "absolute",
-
-          left: 20,
-          right: 20,
-          bottom: 20,
-
-          height: 78,
-
-          borderRadius: 24,
-
-          backgroundColor: "#FFFFFF",
-
-          elevation: 15,
-
-          borderTopWidth: 0,
-        },
       }}
     >
-      <Tabs.Screen
-        name="home"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name={
-                focused
-                  ? "home"
-                  : "home-outline"
-              }
-              size={28}
-              color={
-                focused
-                  ? "#FF6B4A"
-                  : "#999"
-              }
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="menu"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <MaterialIcons
-              name="restaurant-menu"
-              size={28}
-              color={
-                focused
-                  ? "#FF6B4A"
-                  : "#999"
-              }
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="orders"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Feather
-              name="shopping-bag"
-              size={25}
-              color={
-                focused
-                  ? "#FF6B4A"
-                  : "#999"
-              }
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="profile"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name={
-                focused
-                  ? "person"
-                  : "person-outline"
-              }
-              size={27}
-              color={
-                focused
-                  ? "#FF6B4A"
-                  : "#999"
-              }
-            />
-          ),
-        }}
-      />
+      <Tabs.Screen name="home" />
+      <Tabs.Screen name="menu" />
+      <Tabs.Screen name="orders" />
+      <Tabs.Screen name="cart" />
+      <Tabs.Screen name="profile" />
+      <Tabs.Screen name="search" options={{ href: null }} />
+      <Tabs.Screen name="favorites" options={{ href: null }} />
     </Tabs>
   );
 }

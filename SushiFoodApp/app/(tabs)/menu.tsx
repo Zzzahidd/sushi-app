@@ -1,61 +1,116 @@
-import React from "react";
+import { useRouter } from "expo-router";
+import React, { useState } from "react";
 import {
-  SafeAreaView,
+  RefreshControl,
   ScrollView,
   StatusBar,
   StyleSheet,
+  View,
 } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import MenuCategories from "../../components/menu/MenuCategories";
-import MenuHeader from "../../components/menu/MenuHeader";
+import CategoryPills from "../../components/home/CategoryPills";
+import SearchHeader from "../../components/home/SearchHeader";
+import SectionHeader from "../../components/home/SectionHeader";
+import MenuCard from "../../components/menu/MenuCard";
 import OfferBanner from "../../components/menu/OfferBanner";
-import PopularSection from "../../components/menu/PopularSection";
+import { menuProducts } from "../../data/menuProducts";
 
 export default function MenuScreen() {
+  const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [refreshing, setRefreshing] = useState(false);
+
+  const filteredProducts =
+    selectedCategory === "All"
+      ? menuProducts
+      : menuProducts.filter(
+          (p) => p.category.toLowerCase() === selectedCategory.toLowerCase()
+        );
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => setRefreshing(false), 800);
+  };
+
   return (
-    <>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor="#F8F8F8"
-      />
+    <SafeAreaView edges={["top"]} style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
-      <SafeAreaView style={styles.container}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.content}
-        >
-          {/* Header */}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#FF6B4A"
+            colors={["#FF6B4A"]}
+          />
+        }
+      >
+        {/* Top Header */}
+        <Animated.View entering={FadeInDown.duration(300)}>
+          <View style={styles.header}>
+            <SectionHeader
+              title="Explore Menu"
+              subtitle="Handcrafted with premium ingredients"
+            />
+          </View>
+          <SearchHeader onFilterPress={() => router.push("/(tabs)/search" as any)} />
+        </Animated.View>
 
-          <MenuHeader
-            onSearchPress={() =>
-              console.log("Search")
-            }
+        {/* Promo Banner */}
+        <Animated.View entering={FadeInDown.delay(100).duration(300)}>
+          <OfferBanner />
+        </Animated.View>
+
+        {/* Category Filter Pills */}
+        <Animated.View entering={FadeInDown.delay(150).duration(300)} style={{ marginTop: 20 }}>
+          <CategoryPills
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+          />
+        </Animated.View>
+
+        {/* Products Grid */}
+        <Animated.View entering={FadeInDown.delay(200).duration(300)}>
+          <SectionHeader
+            title={`${selectedCategory === "All" ? "All Sushi" : selectedCategory} (${filteredProducts.length})`}
           />
 
-          {/* Categories */}
-
-          <MenuCategories />
-
-          {/* Offer Banner */}
-
-          <OfferBanner />
-
-          {/* Popular Dishes */}
-
-          <PopularSection />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+          <View style={styles.grid}>
+            {filteredProducts.map((item) => (
+              <MenuCard
+                key={item.id}
+                item={item}
+                onPress={() => router.push("/details" as any)}
+                onAddToCart={() => router.push("/checkout" as any)}
+              />
+            ))}
+          </View>
+        </Animated.View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F8F8F8",
+    backgroundColor: "#FFFFFF",
   },
-
-  content: {
-    paddingBottom: 120,
+  header: {
+    paddingTop: 10,
+  },
+  scrollContent: {
+    paddingBottom: 110,
+  },
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
   },
 });

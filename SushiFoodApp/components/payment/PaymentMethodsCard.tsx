@@ -12,10 +12,8 @@ import {
     FontAwesome5,
 } from "@expo/vector-icons";
 
-export default function PaymentMethodsCard() {
-  const [selected, setSelected] = useState("apple");
-
-  const RadioButton = ({ active }: { active: boolean }) => (
+function RadioButton({ active }: { active: boolean }) {
+  return (
     <View
       style={[
         styles.radioOuter,
@@ -25,6 +23,10 @@ export default function PaymentMethodsCard() {
       {active && <View style={styles.radioInner} />}
     </View>
   );
+}
+
+export default function PaymentMethodsCard() {
+  const [selected, setSelected] = useState("apple");
 
   return (
     <View style={styles.container}>

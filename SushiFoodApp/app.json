@@ -7,18 +7,21 @@
     "icon": "./assets/images/icon.png",
     "scheme": "sushirbhai",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "package": "sushi.test",
       "googleServicesFile": "./google-services.json",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA5RfhwjiwiLZxyf4awyylFyGJvRM37AyQ"
+        }
+      },
       "adaptiveIcon": {
         "backgroundColor": "#FF7034",
         "foregroundImage": "./assets/images/android-icon-foreground.png"
       },
-      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -39,7 +42,10 @@
           }
         }
       ],
-      "expo-font"
+      "expo-font",
+      "expo-image",
+      "expo-status-bar",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,

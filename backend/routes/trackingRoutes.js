@@ -2,16 +2,14 @@ const express = require("express");
 
 const router = express.Router();
 
-const protect = require("../middleware/auth");
-
 const {
   updateTracking,
+  simulateTrip,
+  getLiveTracking,
 } = require("../controllers/trackingController");
 
-router.put(
-  "/:id",
-  protect,
-  updateTracking
-);
+router.get("/:id", getLiveTracking);
+router.put("/:id", updateTracking);
+router.post("/:id/simulate", simulateTrip);
 
 module.exports = router;
